@@ -1,0 +1,5 @@
+{
+    "staticWebApps.appSubpath": "BlazorWebDemo",
+    "staticWebApps.apiSubpath": "Api",
+    "staticWebApps.outputSubpath": "wwwroot"
+}
