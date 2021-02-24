@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 namespace BlazorWebDemo.Services
@@ -19,7 +20,7 @@ namespace BlazorWebDemo.Services
         
         public async Task<IEnumerable<HubbleImage>> GetAllImages()
         {
-            return JsonConvert.DeserializeObject<IEnumerable<HubbleImage>>(await httpClient.GetStringAsync($"videos/all?page=all"));
+            return await httpClient.GetFromJsonAsync<IEnumerable<HubbleImage>>($"https://hubblesite.org/api/v3/videos/all?page=all");
         }
 
         public Task<HubbleImage> GetVideo(int id)

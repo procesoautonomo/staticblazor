@@ -1,7 +1,8 @@
 ﻿@page "/"
 @using Models
 @using Services
-@inject IHubbleService HubbleService
+@inject HttpClient HubbleService
+
 <h1>Telescope Snapshots</h1>
 
 @if (images == null)
@@ -30,11 +31,14 @@ else
 }
 
 @code {
-    IEnumerable<HubbleImage> images = new List<HubbleImage>();
     public int NumberOfRows { get; set; } = 10;
+    private const string ServiceEndpoint = "https://hubblesite.org/api/v3/videos/all?page=all";
+    private HubbleImage[] images;
 
-    protected override async Task OnInitializedAsync()
-    {
-        images = await HubbleService.GetAllImages();
-    }
+
+    protected override async Task OnInitializedAsync() => await GetTodoItems();
+
+    private async Task GetTodoItems() => images = await HubbleService.GetFromJsonAsync<HubbleImage[]>(ServiceEndpoint);
+
+
 }
