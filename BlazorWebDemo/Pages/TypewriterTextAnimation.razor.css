@@ -12,43 +12,45 @@
 
     .wrapper .static-txt {
         color: #fff;
-        font-size: 60px;
+        font-size: 4.392386530014641vw;
         font-weight: 400;
+        line-height: 13.698630136986301vh;
     }
 
     .wrapper .dynamic-txts {
-        margin-left: 15px;
-        height:90px;
-        line-height:90px;
-        overflow:hidden;
+        margin-left: 1.0980966325036603vw;
+        height: 13.698630136986301vh;
+        line-height: 13.698630136986301vh;
+        overflow: hidden;
     }
 
 .dynamic-txts li {
     color: #FC6D6C;
     list-style: none;
-    font-size: 60px;
+    font-size: 4.392386530014641vw;
     font-weight: 500;
-    position:relative;
-    top:0;
+    position: relative;
+    top: 0;
     animation: slide 12s steps(4) infinite;
 }
 
 @keyframes slide {
     100% {
-        top: -360px;
+        top: -54.794520547945204vh;
     }
 }
 
 .dynamic-txts li span {
     position: relative;
-    margin: 5px 0;
-    line-height: 90px;
+    margin: 0.36603221083455345vw 0;
+    line-height: 13.698630136986301vh;
 }
 
         .dynamic-txts li span::after {
             content: "";
             position: absolute;
             left: 0;
+            top: 0;
             height: 100%;
             width: 100%;
             background: #343F4F;
@@ -58,7 +60,7 @@
 
 @keyframes typing {
     40%, 60% {
-        left: calc(100% + 30px);
+        left: calc(100% + 2.1961932650073206vw);
     }
 
     100% {
