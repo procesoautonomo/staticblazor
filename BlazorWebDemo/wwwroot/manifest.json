@@ -1,6 +1,6 @@
 {
-  "name": "BlazorWebDemo",
-  "short_name": "BlazorWebDemo",
+  "name": "Ejemplos Autónomos",
+  "short_name": "Autónomo Ex.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",

@@ -1,0 +1,103 @@
+﻿.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background:  linear-gradient(to bottom, #081124 0%, #5f9d84 100%);
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    height: 100vh;
+}
+
+    .wrapper .card {
+        background: #fff;
+        width: 26.875rem;
+        display: flex;
+        align-items: center;
+        padding: 1.25rem;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        justify-content: space-between;
+        border-radius: 6.25rem 1.25rem 1.25rem 6.25rem;
+        animation: animate 15s linear infinite;
+        animation-delay: calc(3s * var(--delay));
+    }
+    .wrapper:hover .card {
+        animation-play-state:paused;
+    }
+        .wrapper .card:last-child {
+        animation-delay: calc(-3s * var(--delay));
+    }
+
+@keyframes animate{
+    0% {
+        opacity: 0;
+        transform: translateY(100%) scale(0.5);
+    }
+
+    5%, 20% {
+        opacity: 0.4;
+        transform: translateY(100%) scale(0.7);
+    }
+
+    25%, 40% {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0%) scale(1);
+    }
+
+    45%, 60% {
+        opacity: 0.4;
+        transform: translateY(-100%) scale(0.7);
+    }
+
+    65%, 100% {
+        opacity: 0;
+        transform: translateY(-100%) scale(0.5);
+    }
+}
+
+.card .content {
+    display: flex;
+    align-items:center;
+}
+
+.card .details {
+    margin-left: 5rem;
+}
+
+.details span {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.card a {
+    text-decoration: none;
+    padding: 0.438rem 1.125rem;
+    border-radius: 1.563rem;
+    color: #fff;
+    background: linear-gradient(to bottom, #081124 0%, #5f9d84 100%);
+}
+
+.wrapper .card .img {
+    height: 5.625rem;
+    width: 5.625rem;
+    position: absolute;
+    left: -0.313rem;
+    background: #fff;
+    border-radius: 50%;
+    padding: 0.313rem;
+    box-shadow: 0rem 0rem 0.313rem rgba(0,0,0,0.2);
+}
+
+.content .img img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
