@@ -1,0 +1,42 @@
+@using Microsoft.JSInterop;
+@inject IJSRuntime JSRuntime;
+@page "/"
+@page "/GlassmorphismCardHover"
+
+<div class="wraper">
+    <div class="container">
+        <div class="card">
+            <div class="content">
+                <h2>01</h2>
+                <h3>Card One</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quaerat?</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <h2>02</h2>
+                <h3>Card Two</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quaerat?</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <h2>03</h2>
+                <h3>Card Three</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quaerat?</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    private IJSObjectReference _jsModule;
+    protected override async Task OnInitializedAsync()
+    {
+        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/VanillaTilt/vanilla-tilt.js");
+        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/VanillaTilt/vanilla-tilt-use.js");
+        await _jsModule.InvokeVoidAsync("initVanillaTilt", null);
+    }
+}
